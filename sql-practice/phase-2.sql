@@ -1,1 +1,16 @@
 -- Your code here
+DROP TABLE IF EXISTS customers;
+
+CREATE TABLE IF NOT EXISTS customers (
+    customer_id INTEGER PRIMARY KEY,
+    customer_name VARCHAR(100) NOT NULL,
+    phone NUMERIC(10) UNIQUE,
+    email VARCHAR(255) UNIQUE,
+    points INTEGER NOT NULL DEFAULT 5,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS coffee_orders (
+    is_redeemed BOOLEAN DEFAULT 0,
+    ordered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
